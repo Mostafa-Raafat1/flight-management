@@ -8,6 +8,7 @@ void flight::add_pass(Passenger* array_, int num_pa) {
 	{
 		if (current_Booked_seats <= seating_capacity) {
 			Passengar_names[current_Booked_seats] = array_[i].name;
+
 			current_Booked_seats++;
 		}
 		else {
@@ -46,7 +47,24 @@ string flight::search_seat_num(int seat_num) {
 		return"Not booked !!";
 	}
 }
-
-
+// display function of each attribute
+void flight::print() {
+	cout << "Flight number : " << number << endl;
+	cout << "Flight destination : " << destination << endl;
+	cout << "Flight departure time with timezone : " << departure_time_tz << endl;
+	cout << "Flihght seating capacity : " << seating_capacity << endl;
+	cout << "Flight current booked seats : " << current_Booked_seats << endl;
+	cout << "Flight seating plan : " << endl;
+	for (int i = 0; i < ceil(seating_capacity/6.0); i++){
+		for (int j = 0; j < 6; j++){
+			cout << seating_plan[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "Passengers names : " << endl;
+	for (int i = 0; i < current_Booked_seats; i++){
+		cout << Passengar_names[i] << endl;
+	}
+}
 
 
